@@ -5,32 +5,29 @@ function getInputValues(){
         number1: parseInt(number1.value),
         number2: parseInt(number2.value)
     };
-
 }
 
-var sum = function(){
-    var inputValues = getInputValues();
-    var result = document.getElementById('result');
-    result.innerHTML = inputValues.number1 + inputValues.number2;
+var performActionsWithNumbers = function(number1, operator, number2){
+    var result;
+
+    if(operator == '+'){
+        result = number1 + number2;
+    } else if(operator == '-'){
+        result = number1 - number2;
+    }else if(operator == '*'){
+        result = number1 * number2;
+    }else{
+        result = number1 / number2;
+    }
+    return result;
 };
 
-var subtract = function(){
+var calc = function (operator) {
     var inputValues = getInputValues();
     var result = document.getElementById('result');
-    result.innerHTML = inputValues.number1 - inputValues.number2;
+    result.innerHTML = performActionsWithNumbers(inputValues.number1, operator, inputValues.number2);
 };
 
-var multiply = function(){
-    var inputValues = getInputValues();
-    var result = document.getElementById('result');
-    result.innerHTML = inputValues.number1 * inputValues.number2;
-};
-
-var divide = function(){
-    var inputValues = getInputValues();
-    var result = document.getElementById('result');
-    result.innerHTML = inputValues.number1 / inputValues.number2;
-};
 
 
 
