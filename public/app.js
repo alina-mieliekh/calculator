@@ -16,10 +16,12 @@ var performActionsWithNumbers = function(number1, operator, number2){
         result = number1 - number2;
     }else if(operator == '*'){
         result = number1 * number2;
-    }else{
+    }else if (operator == '/'){
         result = number1 / number2;
-    }
-    return result;
+    } else {
+        result = Math.pow(number1,number2);
+    };
+        return result;
 };
 
 var calc = function (operator) {
