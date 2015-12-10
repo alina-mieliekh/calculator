@@ -1,46 +1,38 @@
-function getInputValues(){
-    var number1 = document.getElementById('number1');
-    var number2 = document.getElementById('number2');
-    return {
-        number1: parseInt(number1.value),
-        number2: parseInt(number2.value)
-    };
-}
-
-var performActionsWithNumbers = function(number1, operator, number2){
-    var result;
-
-    if(operator == '+'){
-        result = number1 + number2;
-    } else if(operator == '-'){
-        result = number1 - number2;
-    } else if(operator == '%'){
-        result = number1 % number2;
-    }else if(operator == '*'){
-        result = number1 * number2;
-    }else if (operator == '/'){
-        result = number1 / number2;
-    } else {
-        result = Math.pow(number1,number2);
-    };
-        return result;
-};
-
-var calc = function (operator) {
-    var inputValues = getInputValues();
-    var result = document.getElementById('result');
-    result.innerHTML = performActionsWithNumbers(inputValues.number1, operator, inputValues.number2);
-};
-
 var firstValue;
 var operation;
+var secondValue;
+var input = document.getElementById('main-input');
+
 var memorizedValue = function(localOperation){
-    firstValue = +document.getElementById('main-input').value;
+    firstValue = +input.value;
     operation = localOperation;
+    input.value = '';
+    input.focus();
+
+};
+
+var memorizedValue2 = function(){
+    secondValue = +input.value;
 };
 
 var getResult = function () {
-    firstValue
+    memorizedValue2();
+    
+    if(operation == '+'){
+        result = firstValue + secondValue;
+    } else if(operation == '-'){
+        result = firstValue - secondValue;
+    } else if(operation == '%'){
+        result = firstValue % secondValue;
+    }else if(operation == '*'){
+        result = firstValue * secondValue;
+    }else if (operation == '/'){
+        result = firstValue / secondValue;
+    } else {
+        result = Math.pow(firstValue,secondValue);
+    };
+
+    input.value = result;
 
 };
 
