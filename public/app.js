@@ -32,7 +32,17 @@ var calc = function (operator) {
     result.innerHTML = performActionsWithNumbers(inputValues.number1, operator, inputValues.number2);
 };
 
+var firstValue;
+var operation;
+var memorizedValue = function(localOperation){
+    firstValue = +document.getElementById('main-input').value;
+    operation = localOperation;
+};
 
+var getResult = function () {
+    firstValue
+
+};
 
 
 
